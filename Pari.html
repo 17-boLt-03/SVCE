@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Explorer</title>
+<style>
+    @media only screen and (min-width: 481px) {
+        body {
+            display: none; /* Hide the body for screens wider than 480px (mobile width) */
+        }
+    }
+
+    body, html {
+        margin: 0;
+        background: linear-gradient(#e66465, #9198e5);
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+    }
+    .carousel-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .carousel-slide {
+        display: none; /* Hide slides by default */
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s ease-in-out; /* Smooth transition */
+    }
+    .carousel-slide.active {
+        display: flex; /* Show active slide */
+    }
+    .carousel-image {
+        max-width: 80%;
+        max-height: 80%;
+        border-radius: 20px; /* Add rounded corners */
+        overflow: hidden; /* Ensure the border radius is applied correctly */
+    }
+    .footer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px; /* Increased height of the footer */
+        background-color: #453042;
+        color: white;
+        display: flex;
+        justify-content: center; /* Center text horizontally */
+        align-items: center;
+        font-family:cursive; 
+        font-size: 40px; 
+        z-index: 999; 
+    }
+    .manual-control {
+        position: absolute;
+        top: 47%;
+        transform: translateY(-50%);
+        z-index: 999;
+    }
+    .manual-control button {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+    .manual-control button:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    .left-button {
+        position: absolute;
+        left: 10px;
+    }
+
+    .banner-message {
+    position: absolute;
+    top: 16%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    font-family: cursive;
+    z-index: 999;
+    color: whitesmoke;
+    text-align: center; /* Center the text horizontally */
+}
+
+.explore-button {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #e96f6f;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 10px;
+    font-family: cursive;
+}
+
+.explore-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+</style>
+</head>
+<body>
+<div class="footer">Event Explorer</div>
+<div class="carousel-container">
+    <div class="banner-message">Trending Events & Pro-Show</div>
+    <div class="carousel-slide active">
+        <img class="carousel-image" src="Image_1.jpeg" alt="Image 1">
+    </div>
+    <div class="carousel-slide">
+        <img class="carousel-image" src="Image_2.jpeg" alt="Image 2">
+    </div>
+    <div class="carousel-slide">
+        <img class="carousel-image" src="Image_3.jpeg" alt="Image 3">
+    </div>
+    <div class="carousel-slide">
+        <img class="carousel-image" src="Image_4.jpeg" alt="Image 4">
+    </div>
+    <div class="carousel-slide">
+        <img class="carousel-image" src="Image_5.jpeg" alt="Image 5">
+    </div>
+    <div class="carousel-slide">
+        <img class="carousel-image" src="Image_6.jpeg" alt="Image 6">
+    </div>
+    <!-- Add more slides as needed -->
+</div>
+
+<div class="manual-control">
+    <button class="left-button" onclick="prevSlide()">&#10094;</button>
+</div>
+
+<button class="explore-button" onclick="redirectToEventPage()">Explore More</button>
+
+<script>
+    const slides = document.querySelectorAll('.carousel-slide');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+    }
+
+    function nextSlide() {
+        const prevSlide = currentSlide;
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+        slides[prevSlide].style.transform = 'translateX(-100%)';
+        slides[currentSlide].style.transform = 'translateX(0)';
+    }
+
+    function prevSlide() {
+        const prevSlide = currentSlide;
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+        slides[prevSlide].style.transform = 'translateX(100%)';
+        slides[currentSlide].style.transform = 'translateX(0)';
+    }
+
+    // Function to redirect to event.html
+    function redirectToEventPage() {
+        window.location.href = 'Event.html';
+    }
+
+    // Start automatic sliding
+    setInterval(nextSlide, 3000);
+</script>
+</body>
+</html>
