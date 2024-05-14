@@ -7,36 +7,35 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <p>Daily attendance can updated at night</p>
-        </div>
-        <div class="form">
+    <header>
+        <h1>Daily attendance can be updated at night</h1>
+    </header>
+    <main>
+        <div class="form-container">
             <label for="reg-no">Reg. No</label>
-            <input type="text" id="reg-no">
+            <input type="text" id="reg-no" placeholder="Enter Registration Number">
             <label for="dob">DOB</label>
             <input type="date" id="dob">
             <button class="get-attendance">Get Attendance</button>
         </div>
         <div class="attendance-table">
             <table>
-                <tr>
-                    <th>Total Hours</th>
-                    <th>Attend Period</th>
-                    <th>%</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Total Hours</th>
+                        <th>Attend Period</th>
+                        <th>%</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>---</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
-        <div class="footer">
-            <button>&larr;</button>
-            <button>&#9632;</button>
-            <button>&#9650;</button>
-        </div>
-    </div>
+    </main>
 </body>
 </html>
