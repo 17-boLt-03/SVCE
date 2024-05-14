@@ -4,7 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attendance App</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            padding-top: 10%;
+            position: relative;
+        }
+
+        header {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+            padding: 10px 0;
+            background-color: #343a40;
+            color: #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .marquee p {
+            display: inline-block;
+            animation: marquee 10s linear infinite;
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+
+        main {
+            width: 90%;
+            max-width: 400px;
+            margin-top: 50px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .form-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-box {
+            width: 100%;
+            border: 1px solid #ced4da;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background-color: #f1f3f5;
+        }
+
+        .input-box label {
+            display: block;
+            margin: 5px 0;
+            color: #495057;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+
+        .get-attendance {
+            padding: 10px;
+            width: 80%;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .get-attendance:hover {
+            background-color: #218838;
+        }
+
+        .info-box {
+            width: 100%;
+            border: 1px solid #ced4da;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 20px 0;
+            background-color: #e9ecef;
+            color: #495057;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .attendance-table {
+            width: 100%;
+            position: absolute;
+            bottom: 20%;
+        }
+
+        .attendance-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .attendance-table th, .attendance-table td {
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .attendance-table th {
+            background-color: #e9ecef;
+            color: #495057;
+        }
+
+        .attendance-table td {
+            background-color: #fff;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -21,6 +160,9 @@
                 <input type="date" id="dob">
             </div>
             <button class="get-attendance">Get Attendance</button>
+        </div>
+        <div class="info-box">
+            <p>This attendance percentage was actually correct according to the attendance sheet which I handle every day with subject staff, but in master attendance, possibility you get attendance should be &gt; 0.5 to 1% more than this percentage</p>
         </div>
         <div class="attendance-table">
             <table>
