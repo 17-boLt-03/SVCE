@@ -10,31 +10,52 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100vh;
+    padding-top: 10%;
 }
 
 header {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    padding: 10px 0;
     background-color: #343a40;
     color: #fff;
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.marquee p {
+    display: inline-block;
+    animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
 }
 
 main {
     width: 90%;
     max-width: 400px;
+    margin-top: 50px;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .form-container {
     display: flex;
     flex-direction: column;
+    width: 100%;
     margin-bottom: 20px;
 }
 
@@ -48,6 +69,7 @@ main {
     margin-bottom: 15px;
     border: 1px solid #ced4da;
     border-radius: 4px;
+    width: 100%;
 }
 
 .get-attendance {
@@ -58,6 +80,7 @@ main {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    width: 100%;
 }
 
 .get-attendance:hover {
@@ -65,7 +88,7 @@ main {
 }
 
 .attendance-table {
-    margin-top: 20px;
+    width: 100%;
 }
 
 .attendance-table table {
