@@ -6,71 +6,88 @@
     <title>Attendance Checker</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #FFAFBD, #ffc3a0);
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
         }
         .container {
-            max-width: 500px;
-            margin: 50px auto;
-            padding: 20px;
             background: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
             border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
         }
         h1 {
-            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
             color: #333;
         }
         .form-group {
             margin-bottom: 15px;
+            text-align: left;
         }
         label {
             display: block;
             margin-bottom: 5px;
-            color: #666;
+            color: #555;
         }
         input, select {
-            width: 100%;
+            width: calc(100% - 20px);
             padding: 10px;
+            margin: 0 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
         }
         .btn {
-            display: block;
-            width: 100%;
+            width: calc(100% - 20px);
             padding: 10px;
-            background-color: #28a745;
-            color: #fff;
+            background: #FF6F61;
             border: none;
             border-radius: 5px;
+            color: #fff;
             font-size: 16px;
             cursor: pointer;
-            text-align: center;
+            transition: background 0.3s ease;
+            margin: 0 10px;
+            box-sizing: border-box;
         }
         .btn:hover {
-            background-color: #218838;
+            background: #E65B54;
         }
         .info {
             margin-top: 20px;
-            padding: 10px;
-            background-color: #e9ecef;
-            border-left: 5px solid #007bff;
-            color: #333;
+            padding: 15px;
+            background: #fff3cd;
+            border-left: 4px solid #ffeeba;
+            color: #856404;
+            font-size: 14px;
+            text-align: left;
+            margin: 0 10px;
+            box-sizing: border-box;
         }
         .attendance-table {
-            width: 100%;
+            width: calc(100% - 20px);
             border-collapse: collapse;
             margin-top: 20px;
+            margin: 0 10px;
+            box-sizing: border-box;
         }
         .attendance-table th, .attendance-table td {
-            padding: 10px;
+            padding: 12px;
             border: 1px solid #ddd;
             text-align: center;
+            font-size: 14px;
         }
         .attendance-table th {
-            background-color: #f8f9fa;
+            background: #f8f9fa;
         }
     </style>
 </head>
